@@ -4,7 +4,7 @@ import {
   Cpu, Code2, Radio, Mail, Github, Linkedin, MessageCircle, Download,
   ChevronDown, Zap, CircuitBoard, Camera, Wrench, Award, GraduationCap,
   ArrowUpRight, Sparkles, FileText, BookOpen, Users, Briefcase, Eye,
-  Activity, Shield, Music, Antenna, Car, QrCode,
+  Activity, Shield, Music, Antenna, Car, QrCode, FlaskConical, HeartPulse, Target,
 } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
