@@ -69,10 +69,28 @@ const CERTS = [
   { title: "Python for Data Science", issuer: "NPTEL" },
 ];
 
-const RESEARCH = [
-  { title: "IoT Enabled Letter Tracking System", desc: "Research on QR-driven document workflow automation using ESP32, Flask, and PostgreSQL — role-based dashboards for institutional letter tracking." },
-  { title: "Smart Water Quality Monitoring System", desc: "Sensor-based real-time water quality assessment with IoT telemetry for parameters like pH, turbidity, and TDS." },
+const RESEARCH_OBJECTIVES = [
+  "Real-time pulse acquisition",
+  "Multi-channel physiological signal analysis",
+  "Machine learning based classification",
+  "Wearable healthcare monitoring",
+  "Dataset creation and validation",
+  "Embedded healthcare technology development",
 ];
+
+const RESEARCH_TECH = [
+  "Arduino", "Python", "Machine Learning", "Signal Processing",
+  "Optical Sensors", "Embedded Systems", "Data Analysis",
+];
+
+const RESEARCH_PROGRESS = [
+  { phase: "Phase 01", title: "Hardware Prototyping", desc: "Arduino-based multi-sensor pulse acquisition circuit with optical sensors.", status: "completed" },
+  { phase: "Phase 02", title: "Signal Acquisition", desc: "Real-time waveform capture and noise filtering across multiple channels.", status: "completed" },
+  { phase: "Phase 03", title: "Dataset Building", desc: "Curating labeled Vata, Pitta, Kapha pulse datasets for ML training.", status: "active" },
+  { phase: "Phase 04", title: "ML Classification", desc: "Training and tuning classification models for dosha identification.", status: "active" },
+  { phase: "Phase 05", title: "Wearable Integration", desc: "Compact wearable form-factor with on-device inference and alerts.", status: "upcoming" },
+];
+
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
