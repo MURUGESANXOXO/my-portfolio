@@ -4,7 +4,7 @@ import {
   Cpu, Code2, Radio, Mail, Github, Linkedin, MessageCircle, Download,
   ChevronDown, Zap, CircuitBoard, Camera, Wrench, Award, GraduationCap,
   ArrowUpRight, Sparkles, FileText, BookOpen, Users, Briefcase, Eye,
-  Activity, Shield, Music, Antenna, Car, QrCode,
+  Activity, Shield, Music, Antenna, Car, QrCode, FlaskConical, HeartPulse, Target,
 } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
@@ -69,10 +69,28 @@ const CERTS = [
   { title: "Python for Data Science", issuer: "NPTEL" },
 ];
 
-const RESEARCH = [
-  { title: "IoT Enabled Letter Tracking System", desc: "Research on QR-driven document workflow automation using ESP32, Flask, and PostgreSQL — role-based dashboards for institutional letter tracking." },
-  { title: "Smart Water Quality Monitoring System", desc: "Sensor-based real-time water quality assessment with IoT telemetry for parameters like pH, turbidity, and TDS." },
+const RESEARCH_OBJECTIVES = [
+  "Real-time pulse acquisition",
+  "Multi-channel physiological signal analysis",
+  "Machine learning based classification",
+  "Wearable healthcare monitoring",
+  "Dataset creation and validation",
+  "Embedded healthcare technology development",
 ];
+
+const RESEARCH_TECH = [
+  "Arduino", "Python", "Machine Learning", "Signal Processing",
+  "Optical Sensors", "Embedded Systems", "Data Analysis",
+];
+
+const RESEARCH_PROGRESS = [
+  { phase: "Phase 01", title: "Hardware Prototyping", desc: "Arduino-based multi-sensor pulse acquisition circuit with optical sensors.", status: "completed" },
+  { phase: "Phase 02", title: "Signal Acquisition", desc: "Real-time waveform capture and noise filtering across multiple channels.", status: "completed" },
+  { phase: "Phase 03", title: "Dataset Building", desc: "Curating labeled Vata, Pitta, Kapha pulse datasets for ML training.", status: "active" },
+  { phase: "Phase 04", title: "ML Classification", desc: "Training and tuning classification models for dosha identification.", status: "active" },
+  { phase: "Phase 05", title: "Wearable Integration", desc: "Compact wearable form-factor with on-device inference and alerts.", status: "upcoming" },
+];
+
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -367,17 +385,175 @@ function Portfolio() {
       <Reveal>
         <section id="research" className="py-24 px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
-            <SectionLabel icon={BookOpen} label="05 / RESEARCH & PUBLICATIONS" />
-            <h2 className="text-4xl md:text-5xl font-bold mt-8">Research showcase.</h2>
-            <div className="grid md:grid-cols-2 gap-6 mt-12">
-              {RESEARCH.map((r) => (
-                <div key={r.title} className="relative bg-card/60 backdrop-blur-sm border border-border rounded-2xl p-8 hover:border-primary/50 transition-all hover:-translate-y-1 group">
-                  <FileText className="w-8 h-8 text-primary mb-4" />
-                  <h3 className="text-xl font-bold mb-3">{r.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{r.desc}</p>
-                  <ArrowUpRight className="absolute top-6 right-6 w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:rotate-12 transition-all" />
+            <SectionLabel icon={BookOpen} label="05 / RESEARCH & DEVELOPMENT" />
+            <div className="mt-8 flex flex-wrap items-end justify-between gap-4">
+              <h2 className="text-4xl md:text-5xl font-bold">Flagship research.</h2>
+              <p className="text-muted-foreground max-w-md">My most advanced ongoing project — bridging biomedical signal processing, embedded hardware, and machine learning.</p>
+            </div>
+
+            {/* Flagship Research Card */}
+            <div className="relative mt-12 rounded-3xl overflow-hidden border border-primary/30 bg-gradient-to-br from-card/80 via-card/60 to-card/40 backdrop-blur-xl shadow-[0_20px_80px_-20px_rgba(0,0,0,0.5)]">
+              {/* Decorative bg */}
+              <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
+              <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-primary/20 blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-accent/20 blur-3xl pointer-events-none" />
+
+              <div className="relative p-8 md:p-12">
+                {/* Badges */}
+                <div className="flex flex-wrap items-center gap-3 mb-6">
+                  <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-primary text-primary-foreground text-xs font-mono font-semibold glow-primary">
+                    <Sparkles className="w-3.5 h-3.5" /> CURRENT RESEARCH PROJECT
+                  </span>
+                  <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-card/80 border border-primary/40 text-xs font-mono text-primary">
+                    <span className="relative flex w-2 h-2">
+                      <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-75" />
+                      <span className="relative rounded-full w-2 h-2 bg-primary" />
+                    </span>
+                    Ongoing R&amp;D
+                  </span>
+                  <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-card/60 border border-border text-xs font-mono text-muted-foreground">
+                    <FlaskConical className="w-3.5 h-3.5" /> FLAGSHIP
+                  </span>
                 </div>
-              ))}
+
+                <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
+                  <div className="lg:col-span-3 space-y-6">
+                    <div>
+                      <div className="text-xs font-mono text-primary mb-2 tracking-widest">PROJECT TITLE</div>
+                      <h3 className="text-3xl md:text-4xl font-bold leading-tight">
+                        Wrist Pulse Signal Classification for{" "}
+                        <span className="text-gradient">Vata, Pitta, Kapha</span> Detection
+                      </h3>
+                    </div>
+
+                    <div>
+                      <div className="text-xs font-mono text-primary mb-2 tracking-widest">DOMAIN</div>
+                      <div className="flex flex-wrap gap-2">
+                        {["Biomedical Signal Processing", "Embedded Systems", "Machine Learning", "Healthcare Technology"].map((d) => (
+                          <span key={d} className="text-xs px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/30 text-primary font-mono">
+                            {d}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="text-xs font-mono text-primary mb-2 tracking-widest">DESCRIPTION</div>
+                      <p className="text-base text-foreground/85 leading-relaxed">
+                        Developing a wearable multi-sensor pulse acquisition system using Arduino, optical sensors, and machine learning techniques to classify Vata, Pitta, and Kapha characteristics from physiological pulse waveforms. The project combines embedded hardware, signal processing, sensor interfacing, and AI-based classification to create an intelligent healthcare monitoring solution.
+                      </p>
+                    </div>
+
+                    <div>
+                      <div className="text-xs font-mono text-primary mb-3 tracking-widest">TECHNOLOGIES</div>
+                      <div className="flex flex-wrap gap-2">
+                        {RESEARCH_TECH.map((t, i) => (
+                          <span
+                            key={t}
+                            className="text-xs px-3 py-1.5 rounded-full bg-card/80 border border-border text-foreground/80 hover:border-primary hover:text-primary hover:-translate-y-0.5 transition-all backdrop-blur-sm"
+                            style={{ animation: `float 4s ease-in-out ${i * 0.25}s infinite` }}
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="lg:col-span-2 space-y-4">
+                    {/* Visual */}
+                    <div className="relative aspect-square rounded-2xl bg-gradient-to-br from-primary/20 via-accent/10 to-transparent border border-primary/30 flex items-center justify-center overflow-hidden">
+                      <div className="absolute inset-0 grid-bg opacity-30" />
+                      <HeartPulse className="w-32 h-32 text-primary animate-pulse relative z-10" strokeWidth={1.2} />
+                      {/* Pulse waveform */}
+                      <svg className="absolute inset-x-0 bottom-6 w-full h-16 opacity-60" viewBox="0 0 400 60" preserveAspectRatio="none">
+                        <path
+                          d="M0,30 L60,30 L70,30 L80,10 L90,50 L100,5 L110,55 L120,30 L180,30 L190,15 L200,45 L210,30 L300,30 L310,20 L320,40 L330,30 L400,30"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          className="text-primary"
+                        />
+                      </svg>
+                    </div>
+
+                    {/* Objectives */}
+                    <div className="rounded-2xl bg-card/70 backdrop-blur-sm border border-border p-5">
+                      <div className="text-xs font-mono text-primary mb-3 tracking-widest flex items-center gap-2">
+                        <Target className="w-4 h-4" /> RESEARCH OBJECTIVES
+                      </div>
+                      <ul className="space-y-2">
+                        {RESEARCH_OBJECTIVES.map((o) => (
+                          <li key={o} className="flex items-start gap-2 text-sm text-foreground/80">
+                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gradient-primary shrink-0" />
+                            <span>{o}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Research Stats */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 pt-8 border-t border-border">
+                  {[
+                    { v: 3, suffix: "", l: "Dosha Classes", icon: Activity },
+                    { v: 5, suffix: "+", l: "Sensor Channels", icon: CircuitBoard },
+                    { v: 95, suffix: "%", l: "Target Accuracy", icon: Target },
+                    { v: 24, suffix: "/7", l: "Monitoring", icon: HeartPulse },
+                  ].map((s) => (
+                    <div key={s.l} className="text-center p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border hover:border-primary/40 transition-colors">
+                      <s.icon className="w-5 h-5 text-primary mx-auto mb-2" />
+                      <div className="text-2xl md:text-3xl font-bold text-gradient">
+                        <Counter end={s.v} suffix={s.suffix} />
+                      </div>
+                      <div className="text-[10px] font-mono text-muted-foreground mt-1 uppercase tracking-wider">{s.l}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Research Progress Timeline */}
+            <div className="mt-16">
+              <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
+                <span className="font-mono text-xs text-muted-foreground">RESEARCH PROGRESS</span>
+                <span className="h-px flex-1 bg-border" />
+              </h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                {RESEARCH_PROGRESS.map((p) => (
+                  <div
+                    key={p.phase}
+                    className={`relative rounded-2xl p-5 border backdrop-blur-sm transition-all hover:-translate-y-1 ${
+                      p.status === "completed"
+                        ? "bg-primary/10 border-primary/40"
+                        : p.status === "active"
+                          ? "bg-gradient-to-br from-primary/15 to-accent/15 border-primary/60 glow-primary"
+                          : "bg-card/50 border-border"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-[10px] font-mono text-primary tracking-widest">{p.phase}</span>
+                      <span
+                        className={`text-[9px] font-mono uppercase px-2 py-0.5 rounded-full ${
+                          p.status === "completed"
+                            ? "bg-primary/20 text-primary"
+                            : p.status === "active"
+                              ? "bg-accent/20 text-accent"
+                              : "bg-muted text-muted-foreground"
+                        }`}
+                      >
+                        {p.status}
+                      </span>
+                    </div>
+                    <h4 className="font-bold text-sm mb-2">{p.title}</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{p.desc}</p>
+                    {p.status === "active" && (
+                      <span className="absolute top-3 right-3 w-2 h-2 rounded-full bg-accent animate-ping" />
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
 
             {/* Certifications */}
@@ -397,6 +573,7 @@ function Portfolio() {
           </div>
         </section>
       </Reveal>
+
 
       {/* CONTACT */}
       <Reveal>
