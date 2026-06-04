@@ -7,6 +7,7 @@ import {
   Activity, Shield, Music, Antenna, Car, QrCode, FlaskConical, HeartPulse, Target,
 } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import profileAsset from "@/assets/profile.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -171,55 +172,82 @@ function Portfolio() {
           <div className="absolute top-1/3 -left-20 w-72 h-72 rounded-full bg-primary/20 blur-3xl animate-float" />
           <div className="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-accent/20 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
         </div>
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 w-full">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/60 border border-border backdrop-blur-sm mb-8">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-xs font-mono text-muted-foreground">AVAILABLE FOR OPPORTUNITIES</span>
-          </div>
-          <p className="font-mono text-sm text-primary mb-4">Hi, I'm</p>
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95]">
-            <span className="text-gradient">Murugesan M</span>
-          </h1>
-          <h2 className="mt-6 text-2xl md:text-4xl font-bold text-foreground/90 max-w-4xl leading-tight">
-            Building Intelligent Systems Through <span className="text-gradient">Electronics, AI & Innovation</span>
-          </h2>
-          <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-3xl">
-            Final Year Electronics &amp; Communication Engineering Student · Embedded Systems Enthusiast · IoT Developer · Digital Media Specialist
-          </p>
-          <p className="mt-4 text-sm md:text-base text-foreground/70 max-w-2xl">
-            Passionate about transforming engineering ideas into intelligent real-world solutions through electronics, embedded systems, AI, signal processing, and creative innovation.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <a href="/resume.pdf" download className="bg-gradient-primary text-primary-foreground px-5 py-3 rounded-full font-medium inline-flex items-center gap-2 glow-primary hover:scale-105 transition-transform">
-              <Download className="w-4 h-4" /> Download Resume
-            </a>
-            <button onClick={() => scrollTo("projects")} className="border border-border bg-card/50 backdrop-blur-sm px-5 py-3 rounded-full font-medium hover:bg-card transition inline-flex items-center gap-2">
-              <Sparkles className="w-4 h-4" /> View Projects
-            </button>
-            <a href="https://github.com/MURUGESANXOXO" target="_blank" rel="noreferrer" className="border border-border bg-card/50 backdrop-blur-sm px-5 py-3 rounded-full font-medium hover:bg-card transition inline-flex items-center gap-2">
-              <Github className="w-4 h-4" /> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/murugesan-m01" target="_blank" rel="noreferrer" className="border border-border bg-card/50 backdrop-blur-sm px-5 py-3 rounded-full font-medium hover:bg-card transition inline-flex items-center gap-2">
-              <Linkedin className="w-4 h-4" /> LinkedIn
-            </a>
-            <button onClick={() => scrollTo("contact")} className="border border-border bg-card/50 backdrop-blur-sm px-5 py-3 rounded-full font-medium hover:bg-card transition inline-flex items-center gap-2">
-              <Mail className="w-4 h-4" /> Contact Me
-            </button>
-          </div>
-          <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl">
-            {[
-              { v: 8.16, suffix: "/10", l: "CGPA" },
-              { v: 8, suffix: "+", l: "Projects" },
-              { v: 12, suffix: "+", l: "Tools" },
-              { v: 4, suffix: "", l: "Certifications" },
-            ].map((s) => (
-              <div key={s.l}>
-                <div className="text-3xl md:text-4xl font-bold text-gradient">
-                  <Counter end={s.v} suffix={s.suffix} />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 w-full grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-12 items-center">
+          <div className="lg:col-start-1 lg:row-start-1 order-2 lg:order-1">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/60 border border-border backdrop-blur-sm mb-8">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs font-mono text-muted-foreground">AVAILABLE FOR OPPORTUNITIES</span>
+            </div>
+            <p className="font-mono text-sm text-primary mb-4">Hi, I'm</p>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[0.95]">
+              <span className="text-gradient">Murugesan M</span>
+            </h1>
+            <h2 className="mt-6 text-2xl md:text-4xl font-bold text-foreground/90 max-w-4xl leading-tight">
+              Building Intelligent Systems Through <span className="text-gradient">Electronics, AI & Innovation</span>
+            </h2>
+            <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-3xl">
+              Final Year Electronics &amp; Communication Engineering Student · Embedded Systems Enthusiast · IoT Developer · Digital Media Specialist
+            </p>
+            <p className="mt-4 text-sm md:text-base text-foreground/70 max-w-2xl">
+              Passionate about transforming engineering ideas into intelligent real-world solutions through electronics, embedded systems, AI, signal processing, and creative innovation.
+            </p>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <a href="/resume.pdf" download className="bg-gradient-primary text-primary-foreground px-5 py-3 rounded-full font-medium inline-flex items-center gap-2 glow-primary hover:scale-105 transition-transform">
+                <Download className="w-4 h-4" /> Download Resume
+              </a>
+              <button onClick={() => scrollTo("projects")} className="border border-border bg-card/50 backdrop-blur-sm px-5 py-3 rounded-full font-medium hover:bg-card transition inline-flex items-center gap-2">
+                <Sparkles className="w-4 h-4" /> View Projects
+              </button>
+              <a href="https://github.com/MURUGESANXOXO" target="_blank" rel="noreferrer" className="border border-border bg-card/50 backdrop-blur-sm px-5 py-3 rounded-full font-medium hover:bg-card transition inline-flex items-center gap-2">
+                <Github className="w-4 h-4" /> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/murugesan-m01" target="_blank" rel="noreferrer" className="border border-border bg-card/50 backdrop-blur-sm px-5 py-3 rounded-full font-medium hover:bg-card transition inline-flex items-center gap-2">
+                <Linkedin className="w-4 h-4" /> LinkedIn
+              </a>
+              <button onClick={() => scrollTo("contact")} className="border border-border bg-card/50 backdrop-blur-sm px-5 py-3 rounded-full font-medium hover:bg-card transition inline-flex items-center gap-2">
+                <Mail className="w-4 h-4" /> Contact Me
+              </button>
+            </div>
+            <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl">
+              {[
+                { v: 8.16, suffix: "/10", l: "CGPA" },
+                { v: 8, suffix: "+", l: "Projects" },
+                { v: 12, suffix: "+", l: "Tools" },
+                { v: 4, suffix: "", l: "Certifications" },
+              ].map((s) => (
+                <div key={s.l}>
+                  <div className="text-3xl md:text-4xl font-bold text-gradient">
+                    <Counter end={s.v} suffix={s.suffix} />
+                  </div>
+                  <div className="text-xs font-mono text-muted-foreground mt-1 uppercase">{s.l}</div>
                 </div>
-                <div className="text-xs font-mono text-muted-foreground mt-1 uppercase">{s.l}</div>
+              ))}
+            </div>
+          </div>
+
+          {/* Profile photo */}
+          <div className="order-1 lg:order-2 lg:col-start-2 lg:row-start-1 flex justify-center lg:justify-end animate-float">
+            <div className="relative w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] lg:w-[360px] lg:h-[360px] xl:w-[400px] xl:h-[400px]">
+              {/* Neon glow */}
+              <div className="absolute -inset-6 rounded-full bg-gradient-to-br from-primary/40 via-accent/30 to-primary/40 blur-3xl opacity-80" />
+              {/* Glass card behind */}
+              <div className="absolute -inset-4 rounded-full bg-card/30 backdrop-blur-xl border border-white/10 shadow-card" />
+              {/* Rotating gradient ring */}
+              <div className="absolute inset-0 rounded-full p-[3px] bg-gradient-to-tr from-primary via-accent to-primary glow-primary">
+                <div className="w-full h-full rounded-full overflow-hidden bg-card ring-1 ring-white/10">
+                  <img
+                    src={profileAsset.url}
+                    alt="Murugesan M"
+                    className="w-full h-full object-cover"
+                    width={400}
+                    height={400}
+                  />
+                </div>
               </div>
-            ))}
+              {/* Floating accent dots */}
+              <div className="absolute -top-2 right-6 w-3 h-3 rounded-full bg-primary glow-primary" />
+              <div className="absolute bottom-4 -left-2 w-2 h-2 rounded-full bg-accent glow-accent" />
+            </div>
           </div>
         </div>
         <ChevronDown className="absolute bottom-6 left-1/2 -translate-x-1/2 w-6 h-6 text-muted-foreground animate-bounce" />
