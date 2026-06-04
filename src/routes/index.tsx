@@ -5,6 +5,7 @@ import {
   ChevronDown, Zap, CircuitBoard, Camera, Wrench, Award, GraduationCap,
   ArrowUpRight, Sparkles, FileText, BookOpen, Users, Briefcase, Eye,
   Activity, Shield, Music, Antenna, Car, QrCode, FlaskConical, HeartPulse, Target,
+  ChevronLeft, ChevronRight,
 } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import profileAsset from "@/assets/profile.png.asset.json";
