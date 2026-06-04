@@ -133,6 +133,97 @@ function Counter({ end, suffix = "", duration = 1500 }: { end: number; suffix?: 
   return <span ref={ref}>{display}{suffix}</span>;
 }
 
+function ProjectCarousel({ images, icon: Icon, accent, index, title }: { images: string[]; icon: any; accent: string; index: number; title: string }) {
+  const [i, setI] = useState(0);
+  const touchX = useRef<number | null>(null);
+  const has = images.length > 0;
+  const count = images.length;
+
+  const go = (n: number) => setI((p) => (n + count) % count);
+  const prev = () => go(i - 1);
+  const next = () => go(i + 1);
+
+  const onTouchStart = (e: React.TouchEvent) => { touchX.current = e.touches[0].clientX; };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchX.current == null) return;
+    const dx = e.changedTouches[0].clientX - touchX.current;
+    if (Math.abs(dx) > 40) (dx < 0 ? next : prev)();
+    touchX.current = null;
+  };
+
+  return (
+    <div
+      className={`relative overflow-hidden ${has ? "h-56 sm:h-60 lg:h-64 bg-black/40" : `h-32 bg-gradient-to-br ${accent}`}`}
+      onTouchStart={has ? onTouchStart : undefined}
+      onTouchEnd={has ? onTouchEnd : undefined}
+    >
+      {has ? (
+        <>
+          <div
+            className="flex h-full w-full transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(-${i * 100}%)` }}
+          >
+            {images.map((src, idx) => (
+              <div key={idx} className="relative h-full w-full shrink-0 overflow-hidden">
+                <img
+                  src={src}
+                  alt={`${title} — image ${idx + 1}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+            ))}
+          </div>
+
+          {count > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={prev}
+                aria-label="Previous image"
+                className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-card/60 backdrop-blur-md border border-white/10 text-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-primary hover:text-primary-foreground transition"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={next}
+                aria-label="Next image"
+                className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-card/60 backdrop-blur-md border border-white/10 text-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-primary hover:text-primary-foreground transition"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                {images.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setI(idx)}
+                    aria-label={`Go to image ${idx + 1}`}
+                    className={`h-1.5 rounded-full transition-all ${idx === i ? "w-5 bg-primary" : "w-1.5 bg-white/40 hover:bg-white/70"}`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+        </>
+      ) : (
+        <>
+          <div className="absolute inset-0 grid-bg opacity-30" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Icon className="w-16 h-16 text-white/90 group-hover:scale-110 transition-transform duration-500" />
+          </div>
+        </>
+      )}
+      <span className="absolute top-3 right-3 text-xs font-mono text-white/90 bg-black/40 backdrop-blur-md border border-white/10 px-2 py-1 rounded">
+        0{index + 1}
+      </span>
+    </div>
+  );
+}
+
+
+
 function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
