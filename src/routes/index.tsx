@@ -38,15 +38,19 @@ const TIMELINE = [
   { year: "2026", title: "IoT & Leadership", desc: "IoT Digital Letter Tracking System, Quantumit Club leadership, and Araneri digital media work." },
 ];
 
-const PROJECTS = [
-  { title: "Traffic Surveillance System", tag: "MATLAB · YOLOv8 · Kalman Filter", desc: "Real-time vehicle detection, lane analysis, tracking, and overspeed violation alerts.", icon: Car, accent: "from-cyan-500 to-blue-600" },
-  { title: "IoT Digital Letter Tracking", tag: "ESP32 · Flask · PostgreSQL", desc: "QR-based workflow tracking with role-based dashboards and real-time document monitoring.", icon: QrCode, accent: "from-violet-500 to-purple-600" },
-  { title: "Driver Drowsiness Detection", tag: "Embedded Systems · IR Sensors", desc: "Eye-closure monitoring with alarms, braking control, and LED safety alerts.", icon: Eye, accent: "from-amber-500 to-orange-600" },
-  { title: "Wrist Pulse Classification", tag: "Arduino · Sensors · Python · ML", desc: "Wearable multi-sensor pulse acquisition with ML-based Vata, Pitta, Kapha dosha classification.", icon: Activity, accent: "from-rose-500 to-pink-600" },
-  { title: "Overvoltage Protection System", tag: "Hardware · Sensors · Relays", desc: "Surge detection, automatic recovery, temperature sensing, and fire hazard alerts.", icon: Shield, accent: "from-red-500 to-orange-600" },
-  { title: "Multichannel Audio Streaming", tag: "Signal Processing", desc: "Audio multiplexing and companding for efficient transmission and reconstruction.", icon: Music, accent: "from-teal-500 to-emerald-600" },
-  { title: "AM Modulation PCB Design", tag: "PCB Layout · FOSSEE eSim", desc: "Simulation, PCB design, and communication system implementation for base stations.", icon: CircuitBoard, accent: "from-indigo-500 to-blue-600" },
-  { title: "Vivaldi Antenna Design", tag: "Antenna Engineering · CST Studio", desc: "Design and analysis of high-frequency Vivaldi antenna — 5.22 dBi directivity at 45 GHz.", icon: Antenna, accent: "from-fuchsia-500 to-violet-600" },
+type ProjectItem = {
+  title: string; tag: string; desc: string;
+  icon: typeof Car; accent: string; images?: string[];
+};
+const PROJECTS: ProjectItem[] = [
+  { title: "Traffic Surveillance System", tag: "MATLAB · YOLOv8 · Kalman Filter", desc: "Real-time vehicle detection, lane analysis, tracking, and overspeed violation alerts.", icon: Car, accent: "from-cyan-500 to-blue-600", images: [] },
+  { title: "IoT Digital Letter Tracking", tag: "ESP32 · Flask · PostgreSQL", desc: "QR-based workflow tracking with role-based dashboards and real-time document monitoring.", icon: QrCode, accent: "from-violet-500 to-purple-600", images: [] },
+  { title: "Driver Drowsiness Detection", tag: "Embedded Systems · IR Sensors", desc: "Eye-closure monitoring with alarms, braking control, and LED safety alerts.", icon: Eye, accent: "from-amber-500 to-orange-600", images: [] },
+  { title: "Wrist Pulse Classification", tag: "Arduino · Sensors · Python · ML", desc: "Wearable multi-sensor pulse acquisition with ML-based Vata, Pitta, Kapha dosha classification.", icon: Activity, accent: "from-rose-500 to-pink-600", images: [] },
+  { title: "Overvoltage Protection System", tag: "Hardware · Sensors · Relays", desc: "Surge detection, automatic recovery, temperature sensing, and fire hazard alerts.", icon: Shield, accent: "from-red-500 to-orange-600", images: [] },
+  { title: "Multichannel Audio Streaming", tag: "Signal Processing", desc: "Audio multiplexing and companding for efficient transmission and reconstruction.", icon: Music, accent: "from-teal-500 to-emerald-600", images: [] },
+  { title: "AM Modulation PCB Design", tag: "PCB Layout · FOSSEE eSim", desc: "Simulation, PCB design, and communication system implementation for base stations.", icon: CircuitBoard, accent: "from-indigo-500 to-blue-600", images: [] },
+  { title: "Vivaldi Antenna Design", tag: "Antenna Engineering · CST Studio", desc: "Design and analysis of high-frequency Vivaldi antenna — 5.22 dBi directivity at 45 GHz.", icon: Antenna, accent: "from-fuchsia-500 to-violet-600", images: [] },
 ];
 
 const TECH_SKILLS = [
