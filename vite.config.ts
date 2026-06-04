@@ -5,15 +5,24 @@
 //     error logger plugins, and sandbox detection (port/host/strictPort).
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-// When deploying to Vercel, switch the nitro preset to `vercel` so the build
-// emits a Vercel-compatible output (.vercel/output) instead of a Cloudflare
-// Worker bundle. Set DEPLOY_TARGET=vercel in your Vercel project env (or it
-// auto-detects via the VERCEL env var Vercel injects at build time).
+// When deploying to Vercel, switch the nitro preset to `vercel` and write the
+// build output into `.vercel/output` (Vercel Build Output API v3). The lovable
+// config defaults nitro output to `dist/`, which Vercel will NOT pick up, so
+// we override `output.*` to the paths nitro's vercel preset expects.
 const isVercel = !!process.env.VERCEL || process.env.DEPLOY_TARGET === "vercel";
 
 export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
   },
-  nitro: isVercel ? { preset: "vercel" } : undefined,
+  nitro: isVercel
+    ? {
+        preset: "vercel",
+        output: {
+          dir: ".vercel/output",
+          publicDir: ".vercel/output/static",
+          serverDir: ".vercel/output/functions/__server.func",
+        },
+      }
+    : undefined,
 });
