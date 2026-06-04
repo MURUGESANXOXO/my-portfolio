@@ -345,15 +345,7 @@ function Portfolio() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
               {PROJECTS.map((p, i) => (
                 <article key={p.title} className="group relative bg-card/60 backdrop-blur-sm border border-border rounded-2xl overflow-hidden shadow-card hover:border-primary/50 transition-all hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]">
-                  <div className={`relative h-32 bg-gradient-to-br ${p.accent} overflow-hidden`}>
-                    <div className="absolute inset-0 grid-bg opacity-30" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <p.icon className="w-16 h-16 text-white/90 group-hover:scale-110 transition-transform duration-500" />
-                    </div>
-                    <span className="absolute top-3 right-3 text-xs font-mono text-white/80 bg-black/30 backdrop-blur-sm px-2 py-1 rounded">
-                      0{i + 1}
-                    </span>
-                  </div>
+                  <ProjectCarousel images={p.images ?? []} icon={p.icon} accent={p.accent} index={i} title={p.title} />
                   <div className="p-6">
                     <h3 className="text-lg font-bold mb-2">{p.title}</h3>
                     <p className="text-xs font-mono text-primary mb-3">{p.tag}</p>
