@@ -5,6 +5,7 @@ import {
   ChevronDown, Zap, CircuitBoard, Camera, Wrench, Award, GraduationCap,
   ArrowUpRight, Sparkles, FileText, BookOpen, Users, Briefcase, Eye,
   Activity, Shield, Music, Antenna, Car, QrCode, FlaskConical, HeartPulse, Target,
+  ChevronLeft, ChevronRight,
 } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import profileAsset from "@/assets/profile.png.asset.json";
@@ -37,15 +38,19 @@ const TIMELINE = [
   { year: "2026", title: "IoT & Leadership", desc: "IoT Digital Letter Tracking System, Quantumit Club leadership, and Araneri digital media work." },
 ];
 
-const PROJECTS = [
-  { title: "Traffic Surveillance System", tag: "MATLAB · YOLOv8 · Kalman Filter", desc: "Real-time vehicle detection, lane analysis, tracking, and overspeed violation alerts.", icon: Car, accent: "from-cyan-500 to-blue-600" },
-  { title: "IoT Digital Letter Tracking", tag: "ESP32 · Flask · PostgreSQL", desc: "QR-based workflow tracking with role-based dashboards and real-time document monitoring.", icon: QrCode, accent: "from-violet-500 to-purple-600" },
-  { title: "Driver Drowsiness Detection", tag: "Embedded Systems · IR Sensors", desc: "Eye-closure monitoring with alarms, braking control, and LED safety alerts.", icon: Eye, accent: "from-amber-500 to-orange-600" },
-  { title: "Wrist Pulse Classification", tag: "Arduino · Sensors · Python · ML", desc: "Wearable multi-sensor pulse acquisition with ML-based Vata, Pitta, Kapha dosha classification.", icon: Activity, accent: "from-rose-500 to-pink-600" },
-  { title: "Overvoltage Protection System", tag: "Hardware · Sensors · Relays", desc: "Surge detection, automatic recovery, temperature sensing, and fire hazard alerts.", icon: Shield, accent: "from-red-500 to-orange-600" },
-  { title: "Multichannel Audio Streaming", tag: "Signal Processing", desc: "Audio multiplexing and companding for efficient transmission and reconstruction.", icon: Music, accent: "from-teal-500 to-emerald-600" },
-  { title: "AM Modulation PCB Design", tag: "PCB Layout · FOSSEE eSim", desc: "Simulation, PCB design, and communication system implementation for base stations.", icon: CircuitBoard, accent: "from-indigo-500 to-blue-600" },
-  { title: "Vivaldi Antenna Design", tag: "Antenna Engineering · CST Studio", desc: "Design and analysis of high-frequency Vivaldi antenna — 5.22 dBi directivity at 45 GHz.", icon: Antenna, accent: "from-fuchsia-500 to-violet-600" },
+type ProjectItem = {
+  title: string; tag: string; desc: string;
+  icon: typeof Car; accent: string; images?: string[];
+};
+const PROJECTS: ProjectItem[] = [
+  { title: "Traffic Surveillance System", tag: "MATLAB · YOLOv8 · Kalman Filter", desc: "Real-time vehicle detection, lane analysis, tracking, and overspeed violation alerts.", icon: Car, accent: "from-cyan-500 to-blue-600", images: [] },
+  { title: "IoT Digital Letter Tracking", tag: "ESP32 · Flask · PostgreSQL", desc: "QR-based workflow tracking with role-based dashboards and real-time document monitoring.", icon: QrCode, accent: "from-violet-500 to-purple-600", images: [] },
+  { title: "Driver Drowsiness Detection", tag: "Embedded Systems · IR Sensors", desc: "Eye-closure monitoring with alarms, braking control, and LED safety alerts.", icon: Eye, accent: "from-amber-500 to-orange-600", images: [] },
+  { title: "Wrist Pulse Classification", tag: "Arduino · Sensors · Python · ML", desc: "Wearable multi-sensor pulse acquisition with ML-based Vata, Pitta, Kapha dosha classification.", icon: Activity, accent: "from-rose-500 to-pink-600", images: [] },
+  { title: "Overvoltage Protection System", tag: "Hardware · Sensors · Relays", desc: "Surge detection, automatic recovery, temperature sensing, and fire hazard alerts.", icon: Shield, accent: "from-red-500 to-orange-600", images: [] },
+  { title: "Multichannel Audio Streaming", tag: "Signal Processing", desc: "Audio multiplexing and companding for efficient transmission and reconstruction.", icon: Music, accent: "from-teal-500 to-emerald-600", images: [] },
+  { title: "AM Modulation PCB Design", tag: "PCB Layout · FOSSEE eSim", desc: "Simulation, PCB design, and communication system implementation for base stations.", icon: CircuitBoard, accent: "from-indigo-500 to-blue-600", images: [] },
+  { title: "Vivaldi Antenna Design", tag: "Antenna Engineering · CST Studio", desc: "Design and analysis of high-frequency Vivaldi antenna — 5.22 dBi directivity at 45 GHz.", icon: Antenna, accent: "from-fuchsia-500 to-violet-600", images: [] },
 ];
 
 const TECH_SKILLS = [
@@ -127,6 +132,97 @@ function Counter({ end, suffix = "", duration = 1500 }: { end: number; suffix?: 
   const display = end % 1 !== 0 ? val.toFixed(2) : Math.round(val).toString();
   return <span ref={ref}>{display}{suffix}</span>;
 }
+
+function ProjectCarousel({ images, icon: Icon, accent, index, title }: { images: string[]; icon: any; accent: string; index: number; title: string }) {
+  const [i, setI] = useState(0);
+  const touchX = useRef<number | null>(null);
+  const has = images.length > 0;
+  const count = images.length;
+
+  const go = (n: number) => setI((p) => (n + count) % count);
+  const prev = () => go(i - 1);
+  const next = () => go(i + 1);
+
+  const onTouchStart = (e: React.TouchEvent) => { touchX.current = e.touches[0].clientX; };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchX.current == null) return;
+    const dx = e.changedTouches[0].clientX - touchX.current;
+    if (Math.abs(dx) > 40) (dx < 0 ? next : prev)();
+    touchX.current = null;
+  };
+
+  return (
+    <div
+      className={`relative overflow-hidden ${has ? "h-56 sm:h-60 lg:h-64 bg-black/40" : `h-32 bg-gradient-to-br ${accent}`}`}
+      onTouchStart={has ? onTouchStart : undefined}
+      onTouchEnd={has ? onTouchEnd : undefined}
+    >
+      {has ? (
+        <>
+          <div
+            className="flex h-full w-full transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(-${i * 100}%)` }}
+          >
+            {images.map((src, idx) => (
+              <div key={idx} className="relative h-full w-full shrink-0 overflow-hidden">
+                <img
+                  src={src}
+                  alt={`${title} — image ${idx + 1}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+            ))}
+          </div>
+
+          {count > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={prev}
+                aria-label="Previous image"
+                className="absolute left-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-card/60 backdrop-blur-md border border-white/10 text-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-primary hover:text-primary-foreground transition"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={next}
+                aria-label="Next image"
+                className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-card/60 backdrop-blur-md border border-white/10 text-foreground flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-primary hover:text-primary-foreground transition"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </button>
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                {images.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setI(idx)}
+                    aria-label={`Go to image ${idx + 1}`}
+                    className={`h-1.5 rounded-full transition-all ${idx === i ? "w-5 bg-primary" : "w-1.5 bg-white/40 hover:bg-white/70"}`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+        </>
+      ) : (
+        <>
+          <div className="absolute inset-0 grid-bg opacity-30" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Icon className="w-16 h-16 text-white/90 group-hover:scale-110 transition-transform duration-500" />
+          </div>
+        </>
+      )}
+      <span className="absolute top-3 right-3 text-xs font-mono text-white/90 bg-black/40 backdrop-blur-md border border-white/10 px-2 py-1 rounded">
+        0{index + 1}
+      </span>
+    </div>
+  );
+}
+
+
 
 function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
@@ -340,15 +436,7 @@ function Portfolio() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
               {PROJECTS.map((p, i) => (
                 <article key={p.title} className="group relative bg-card/60 backdrop-blur-sm border border-border rounded-2xl overflow-hidden shadow-card hover:border-primary/50 transition-all hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]">
-                  <div className={`relative h-32 bg-gradient-to-br ${p.accent} overflow-hidden`}>
-                    <div className="absolute inset-0 grid-bg opacity-30" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <p.icon className="w-16 h-16 text-white/90 group-hover:scale-110 transition-transform duration-500" />
-                    </div>
-                    <span className="absolute top-3 right-3 text-xs font-mono text-white/80 bg-black/30 backdrop-blur-sm px-2 py-1 rounded">
-                      0{i + 1}
-                    </span>
-                  </div>
+                  <ProjectCarousel images={p.images ?? []} icon={p.icon} accent={p.accent} index={i} title={p.title} />
                   <div className="p-6">
                     <h3 className="text-lg font-bold mb-2">{p.title}</h3>
                     <p className="text-xs font-mono text-primary mb-3">{p.tag}</p>
