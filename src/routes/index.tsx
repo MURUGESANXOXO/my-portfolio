@@ -5,7 +5,7 @@ import {
   ChevronDown, Zap, CircuitBoard, Camera, Wrench, Award, GraduationCap,
   ArrowUpRight, Sparkles, FileText, BookOpen, Users, Briefcase, Eye,
   Activity, Shield, Music, Antenna, Car, QrCode, FlaskConical, HeartPulse, Target,
-  ChevronLeft, ChevronRight,
+  ChevronLeft, ChevronRight, Menu, X,
 } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import profileImage from "@/assets/profile.png";
@@ -297,6 +297,7 @@ function ResearchCarousel() {
 
 function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
@@ -311,26 +312,81 @@ function Portfolio() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* NAV */}
       <header className={`fixed top-0 inset-x-0 z-50 transition-all ${scrolled ? "backdrop-blur-xl bg-background/60 border-b border-border/60" : ""}`}>
-        <nav className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-          <button onClick={() => scrollTo("hero")} className="font-mono text-sm font-bold text-gradient">
-            &lt;MURUGESAN/&gt;
-          </button>
-            <ul className="flex flex-wrap md:flex-nowrap justify-center gap-4 md:gap-7 text-xs md:text-sm">
-                        {NAV.map((n) => (
-                         <li key={n.id}>
-                               <button
-                                 onClick={() => scrollTo(n.id)}
-                               className="text-muted-foreground hover:text-primary transition-colors"
-                                           >
-                                         {n.label}
-                                        </button>
-                                                     </li>
-                                                        ))}
-                                                           </ul>
-          <a href="/resume.pdf" download className="inline-flex items-center gap-2 text-sm bg-gradient-primary text-primary-foreground px-4 py-2 rounded-full font-medium hover:opacity-90 transition">
-            Resume <Download className="w-4 h-4" />
-          </a>
-        </nav>
+        <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+
+  <button
+    onClick={() => scrollTo("hero")}
+    className="font-mono text-sm font-bold text-gradient"
+  >
+    &lt;MURUGESAN/&gt;
+  </button>
+
+  {/* Desktop Navigation */}
+  <ul className="hidden md:flex items-center gap-7 text-sm">
+    {NAV.map((n) => (
+      <li key={n.id}>
+        <button
+          onClick={() => scrollTo(n.id)}
+          className="text-muted-foreground hover:text-primary transition-colors"
+        >
+          {n.label}
+        </button>
+      </li>
+    ))}
+  </ul>
+
+  <div className="flex items-center gap-3">
+
+    {/* Mobile Menu Button */}
+    <button
+      className="md:hidden"
+      onClick={() => setMenuOpen(!menuOpen)}
+    >
+      {menuOpen ? (
+        <X className="w-6 h-6" />
+      ) : (
+        <Menu className="w-6 h-6" />
+      )}
+    </button>
+
+    {/* Desktop Resume Button */}
+    <a
+      href="/resume.pdf"
+      download
+      className="hidden md:inline-flex items-center gap-2 text-sm bg-gradient-primary text-primary-foreground px-4 py-2 rounded-full font-medium hover:opacity-90 transition"
+    >
+      Resume <Download className="w-4 h-4" />
+    </a>
+
+  </div>
+
+</nav>
+
+{menuOpen && (
+  <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border">
+    {NAV.map((n) => (
+      <button
+        key={n.id}
+        onClick={() => {
+          scrollTo(n.id);
+          setMenuOpen(false);
+        }}
+        className="block w-full text-left px-6 py-4 hover:text-primary"
+      >
+        {n.label}
+      </button>
+    ))}
+
+    <a
+      href="/resume.pdf"
+      download
+      className="block px-6 py-4 text-primary font-medium"
+    >
+      Resume
+    </a>
+  </div>
+)}
+          
       </header>
 
       {/* HERO */}
