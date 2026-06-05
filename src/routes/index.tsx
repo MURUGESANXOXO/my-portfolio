@@ -448,13 +448,18 @@ function Portfolio() {
                     </div>
                   </div>
                 </GlassCard>
-                <GlassCard icon={Camera} title="Digital Media — Araneri">
+                <GlassCard icon={Camera} title="Media & Marketing Specialist— @ Araneri">
                   <p className="text-sm text-muted-foreground">
                     End-to-end digital marketing, social media, video editing, and creative direction for clients.
                   </p>
                 </GlassCard>
-              </div>
-            </div>
+                <GlassCard icon={Users} title="Social Media Manager — QuantumIT Club">
+                          <p className="text-sm text-muted-foreground">
+                            Managing the club's social media presence, creating technical content, promoting events, designing campaigns, and increasing student engagement through digital platforms.
+                          </p>
+                        </GlassCard>
+                       </div>
+                      </div>
 
             {/* Timeline */}
             <div className="mt-20">
