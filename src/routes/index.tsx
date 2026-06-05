@@ -90,6 +90,8 @@ const CERTS = [
   { title: "MATLAB Linear Algebra", issuer: "MathWorks" },
   { title: "FPGA-Based Sensing for IoT", issuer: "IEEE Webinar" },
   { title: "Python for Data Science", issuer: "NPTEL" },
+  { title: "RISC-V on FPGA: Application and Porting", issuer: "IEEE Student Branch MIT & Anna University" },
+  { title: "Quantum Computing and Quantum Simulation Workshop", issuer: "QuantumIT, MIT Campus, Anna University" },
 ];
 
 const RESEARCH_OBJECTIVES = [
@@ -801,7 +803,7 @@ function Portfolio() {
               <span className="font-mono text-xs text-muted-foreground">CERTIFICATIONS</span>
               <span className="h-px flex-1 bg-border" />
             </h3>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {CERTS.map((c) => (
                 <div key={c.title} className="bg-card/60 backdrop-blur-sm border border-border rounded-xl p-5 hover:border-primary/50 transition-all hover:-translate-y-1">
                   <GraduationCap className="w-6 h-6 text-primary mb-3" />
