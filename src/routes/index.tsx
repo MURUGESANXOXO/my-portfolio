@@ -311,7 +311,7 @@ function Portfolio() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* NAV */}
       <header className={`fixed top-0 inset-x-0 z-50 transition-all ${scrolled ? "backdrop-blur-xl bg-background/60 border-b border-border/60" : ""}`}>
-        <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        <nav className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
           <button onClick={() => scrollTo("hero")} className="font-mono text-sm font-bold text-gradient">
             &lt;MURUGESAN/&gt;
           </button>
