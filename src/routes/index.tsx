@@ -8,7 +8,24 @@ import {
   ChevronLeft, ChevronRight,
 } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
-import profileAsset from "@/assets/profile.png.asset.json";
+import profileImage from "@/assets/profile.png";
+import traffic1 from "@/assets/projects/trafficimage1.png";
+import traffic2 from "@/assets/projects/traffic image2.png";
+import traffic3 from "@/assets/projects/trafficeimage3.png";
+import iot1 from "@/assets/projects/iot1.png";
+import iot2 from "@/assets/projects/iot2 (2).jpg";
+import iot3 from "@/assets/projects/iot3.jpg";
+import antenna1 from "@/assets/projects/antenna1.png";
+import antenna2 from "@/assets/projects/antenna2.jpg";
+import drowsy1 from "@/assets/projects/drowsy1.png";
+import am1 from "@/assets/projects/am1.png";
+import am2 from "@/assets/projects/am2 (2).png";
+import abc from "@/assets/projects/abc.png";
+import over1 from "@/assets/projects/over1.png";
+import cap1 from "@/assets/projects/cap1.png";
+import cap2 from "@/assets/projects/cap2.png";
+
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,9 +50,9 @@ const NAV = [
 
 const TIMELINE = [
   { year: "2023", title: "Joined MIT Chennai", desc: "Began B.E. in Electronics & Communication Engineering at Madras Institute of Technology, Anna University." },
-  { year: "2024", title: "Embedded Systems & Hardware", desc: "Built hardware projects — Overvoltage Protection, Driver Drowsiness Detection, and PCB design fundamentals." },
-  { year: "2025", title: "AI, Computer Vision & Signal Processing", desc: "Traffic Surveillance with YOLOv8, Wrist Pulse ML classification, multichannel audio optimization." },
-  { year: "2026", title: "IoT & Leadership", desc: "IoT Digital Letter Tracking System, Quantumit Club leadership, and Araneri digital media work." },
+  { year: "2024", title: "Embedded Systems & Hardware", desc: "Built hardware projects — Worked in various projects invloving signal and image processing , Iot and cloud networks, Analog circuits & design ,PCB Designing , Matlab Projects and more." },
+  { year: "2025", title: "Leadership & Experience ", desc: "MEdia Specialaist @ QUANTUMIT_Club -Expert in Editing , Direction , Content Curation ,Media management ." },
+  { year: "2026", title: "ME and @ARANERI", desc: "Digital Marketing & Media Specialist @ ARANERI #Startup driven by passionate engineering students ." },
 ];
 
 type ProjectItem = {
@@ -43,14 +60,14 @@ type ProjectItem = {
   icon: typeof Car; accent: string; images?: string[];
 };
 const PROJECTS: ProjectItem[] = [
-  { title: "Traffic Surveillance System", tag: "MATLAB · YOLOv8 · Kalman Filter", desc: "Real-time vehicle detection, lane analysis, tracking, and overspeed violation alerts.", icon: Car, accent: "from-cyan-500 to-blue-600", images: [] },
-  { title: "IoT Digital Letter Tracking", tag: "ESP32 · Flask · PostgreSQL", desc: "QR-based workflow tracking with role-based dashboards and real-time document monitoring.", icon: QrCode, accent: "from-violet-500 to-purple-600", images: [] },
-  { title: "Driver Drowsiness Detection", tag: "Embedded Systems · IR Sensors", desc: "Eye-closure monitoring with alarms, braking control, and LED safety alerts.", icon: Eye, accent: "from-amber-500 to-orange-600", images: [] },
-  { title: "Wrist Pulse Classification", tag: "Arduino · Sensors · Python · ML", desc: "Wearable multi-sensor pulse acquisition with ML-based Vata, Pitta, Kapha dosha classification.", icon: Activity, accent: "from-rose-500 to-pink-600", images: [] },
-  { title: "Overvoltage Protection System", tag: "Hardware · Sensors · Relays", desc: "Surge detection, automatic recovery, temperature sensing, and fire hazard alerts.", icon: Shield, accent: "from-red-500 to-orange-600", images: [] },
-  { title: "Multichannel Audio Streaming", tag: "Signal Processing", desc: "Audio multiplexing and companding for efficient transmission and reconstruction.", icon: Music, accent: "from-teal-500 to-emerald-600", images: [] },
-  { title: "AM Modulation PCB Design", tag: "PCB Layout · FOSSEE eSim", desc: "Simulation, PCB design, and communication system implementation for base stations.", icon: CircuitBoard, accent: "from-indigo-500 to-blue-600", images: [] },
-  { title: "Vivaldi Antenna Design", tag: "Antenna Engineering · CST Studio", desc: "Design and analysis of high-frequency Vivaldi antenna — 5.22 dBi directivity at 45 GHz.", icon: Antenna, accent: "from-fuchsia-500 to-violet-600", images: [] },
+  { title: "Traffic Surveillance System", tag: "MATLAB · YOLOv8 · Kalman Filter", desc: "Real-time vehicle detection, lane analysis, tracking, and overspeed violation alerts.", icon: Car, accent: "from-cyan-500 to-blue-600", images: [traffic1,traffic2,traffic3] },
+  { title: "IoT Digital Letter Tracking", tag: "ESP32 · Flask · PostgreSQL", desc: "QR-based workflow tracking with role-based dashboards and real-time document monitoring.", icon: QrCode, accent: "from-violet-500 to-purple-600", images: [iot1,iot2,iot3] },
+  { title: "Driver Drowsiness Detection", tag: "Embedded Systems · IR Sensors", desc: "Eye-closure monitoring with alarms, braking control, and LED safety alerts.", icon: Eye, accent: "from-amber-500 to-orange-600", images: [drowsy1] },
+  { title: "Wrist Pulse Classification", tag: "Arduino · Sensors · Python · ML", desc: "Wearable multi-sensor pulse acquisition with ML-based Vata, Pitta, Kapha dosha classification.", icon: Activity, accent: "from-rose-500 to-pink-600", images: [cap1,cap2] },
+  { title: "Overvoltage Protection System", tag: "Hardware · Sensors · Relays", desc: "Surge detection, automatic recovery, temperature sensing, and fire hazard alerts.", icon: Shield, accent: "from-red-500 to-orange-600", images: [over1] },
+  { title: "Multichannel Audio Streaming", tag: "Signal Processing", desc: "Audio multiplexing and companding for efficient transmission and reconstruction.", icon: Music, accent: "from-teal-500 to-emerald-600", images: [abc] },
+  { title: "AM Modulation PCB Design", tag: "PCB Layout · FOSSEE eSim", desc: "Simulation, PCB design, and communication system implementation for base stations.", icon: CircuitBoard, accent: "from-indigo-500 to-blue-600", images: [am1,am2] },
+  { title: "Vivaldi Antenna Design", tag: "Antenna Engineering · CST Studio", desc: "Design and analysis of high-frequency Vivaldi antenna — 5.22 dBi directivity at 45 GHz.", icon: Antenna, accent: "from-fuchsia-500 to-violet-600", images: [antenna1,antenna2] },
 ];
 
 const TECH_SKILLS = [
@@ -96,7 +113,10 @@ const RESEARCH_PROGRESS = [
   { phase: "Phase 04", title: "ML Classification", desc: "Training and tuning classification models for dosha identification.", status: "active" },
   { phase: "Phase 05", title: "Wearable Integration", desc: "Compact wearable form-factor with on-device inference and alerts.", status: "upcoming" },
 ];
-
+const RESEARCH_IMAGES = [
+  cap1,
+  cap2,
+];
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -152,8 +172,9 @@ function ProjectCarousel({ images, icon: Icon, accent, index, title }: { images:
   };
 
   return (
-    <div
-      className={`relative overflow-hidden ${has ? "h-56 sm:h-60 lg:h-64 bg-black/40" : `h-32 bg-gradient-to-br ${accent}`}`}
+    
+      <div
+  className={`relative overflow-hidden ${has ? "h-72 sm:h-80 lg:h-96 bg-black/60" : `h-32 bg-gradient-to-br ${accent}`}`}
       onTouchStart={has ? onTouchStart : undefined}
       onTouchEnd={has ? onTouchEnd : undefined}
     >
@@ -164,13 +185,13 @@ function ProjectCarousel({ images, icon: Icon, accent, index, title }: { images:
             style={{ transform: `translateX(-${i * 100}%)` }}
           >
             {images.map((src, idx) => (
-              <div key={idx} className="relative h-full w-full shrink-0 overflow-hidden">
+                <div key={idx} className="relative h-full w-full shrink-0 overflow-hidden bg-black">
                 <img
-                  src={src}
-                  alt={`${title} — image ${idx + 1}`}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+                         src={src}
+                                alt={`${title} — image ${idx + 1}`}
+                                             loading="lazy"
+                                    className="h-full w-full object-contain bg-black transition-transform duration-700 group-hover:scale-105"
+/>
               </div>
             ))}
           </div>
@@ -222,6 +243,56 @@ function ProjectCarousel({ images, icon: Icon, accent, index, title }: { images:
   );
 }
 
+
+function ResearchCarousel() {
+  const [current, setCurrent] = useState(0);
+
+  const next = () =>
+    setCurrent((prev) => (prev + 1) % RESEARCH_IMAGES.length);
+
+  const prev = () =>
+    setCurrent(
+      (prev) => (prev - 1 + RESEARCH_IMAGES.length) % RESEARCH_IMAGES.length
+    );
+
+  return (
+    <div className="relative h-[450px] rounded-2xl overflow-hidden border border-primary/30 bg-black">
+      <img
+        src={RESEARCH_IMAGES[current]}
+        alt="Research Project"
+        className="w-full h-full object-contain bg-black"
+      />
+
+      <button
+        onClick={prev}
+        className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 backdrop-blur text-white"
+      >
+        <ChevronLeft />
+      </button>
+
+      <button
+        onClick={next}
+        className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 backdrop-blur text-white"
+      >
+        <ChevronRight />
+      </button>
+
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        {RESEARCH_IMAGES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`h-2 rounded-full ${
+              current === i
+                ? "w-6 bg-cyan-400"
+                : "w-2 bg-white/50"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 
 function Portfolio() {
@@ -332,12 +403,12 @@ function Portfolio() {
               <div className="absolute inset-0 rounded-full p-[3px] bg-gradient-to-tr from-primary via-accent to-primary glow-primary">
                 <div className="w-full h-full rounded-full overflow-hidden bg-card ring-1 ring-white/10">
                   <img
-                    src={profileAsset.url}
-                    alt="Murugesan M"
-                    className="w-full h-full object-cover"
-                    width={400}
-                    height={400}
-                  />
+                      src={profileImage}
+                        alt="Murugesan M"
+                          className="w-full h-full object-cover"
+                                        width={400}
+                                 height={400}
+                                 />
                 </div>
               </div>
               {/* Floating accent dots */}
@@ -430,7 +501,7 @@ function Portfolio() {
           <div className="max-w-6xl mx-auto">
             <SectionLabel icon={Zap} label="03 / PROJECTS" />
             <div className="flex flex-wrap items-end justify-between mt-8 gap-4">
-              <h2 className="text-4xl md:text-5xl font-bold">Selected work.</h2>
+              <h2 className="text-4xl md:text-5xl font-bold">Project works.</h2>
               <p className="text-muted-foreground max-w-md">From embedded hardware to ML-driven systems — projects spanning detection, IoT, RF, antenna design, and signal processing.</p>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
@@ -490,7 +561,10 @@ function Portfolio() {
               </div>
               <div>
                 <div className="text-xs font-mono text-primary">ACHIEVEMENT</div>
-                <div className="font-bold">Runner-Up — Q-Debate, Chakravyuha'25</div>
+                <div className="font-bold">1. Runner-Up — Q-Debate, Chakravyuha'25</div>
+                <div className="font-bold">2. Completed 5km marathon as a cleanliness awareness #SWATCH BHARAT</div>
+          
+
               </div>
             </div>
           </div>
@@ -501,9 +575,9 @@ function Portfolio() {
       <Reveal>
         <section id="research" className="py-24 px-4 sm:px-6">
           <div className="max-w-6xl mx-auto">
-            <SectionLabel icon={BookOpen} label="05 / RESEARCH & DEVELOPMENT" />
+            <SectionLabel icon={BookOpen} label="05 / CAPSTONE PROJECT" />
             <div className="mt-8 flex flex-wrap items-end justify-between gap-4">
-              <h2 className="text-4xl md:text-5xl font-bold">Flagship research.</h2>
+              <h2 className="text-4xl md:text-5xl font-bold">Capstone Research work.</h2>
               <p className="text-muted-foreground max-w-md">My most advanced ongoing project — bridging biomedical signal processing, embedded hardware, and machine learning.</p>
             </div>
 
@@ -577,21 +651,8 @@ function Portfolio() {
                   </div>
 
                   <div className="lg:col-span-2 space-y-4">
-                    {/* Visual */}
-                    <div className="relative aspect-square rounded-2xl bg-gradient-to-br from-primary/20 via-accent/10 to-transparent border border-primary/30 flex items-center justify-center overflow-hidden">
-                      <div className="absolute inset-0 grid-bg opacity-30" />
-                      <HeartPulse className="w-32 h-32 text-primary animate-pulse relative z-10" strokeWidth={1.2} />
-                      {/* Pulse waveform */}
-                      <svg className="absolute inset-x-0 bottom-6 w-full h-16 opacity-60" viewBox="0 0 400 60" preserveAspectRatio="none">
-                        <path
-                          d="M0,30 L60,30 L70,30 L80,10 L90,50 L100,5 L110,55 L120,30 L180,30 L190,15 L200,45 L210,30 L300,30 L310,20 L320,40 L330,30 L400,30"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          className="text-primary"
-                        />
-                      </svg>
-                    </div>
+                   <ResearchCarousel />
+                
 
                     {/* Objectives */}
                     <div className="rounded-2xl bg-card/70 backdrop-blur-sm border border-border p-5">
@@ -614,8 +675,7 @@ function Portfolio() {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 pt-8 border-t border-border">
                   {[
                     { v: 3, suffix: "", l: "Dosha Classes", icon: Activity },
-                    { v: 5, suffix: "+", l: "Sensor Channels", icon: CircuitBoard },
-                    { v: 95, suffix: "%", l: "Target Accuracy", icon: Target },
+                    { v: 3, suffix: "+", l: "Sensor Channels", icon: CircuitBoard },
                     { v: 24, suffix: "/7", l: "Monitoring", icon: HeartPulse },
                   ].map((s) => (
                     <div key={s.l} className="text-center p-4 rounded-xl bg-card/50 backdrop-blur-sm border border-border hover:border-primary/40 transition-colors">
