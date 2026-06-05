@@ -51,7 +51,7 @@ const NAV = [
 const TIMELINE = [
   { year: "2023", title: "Joined MIT Chennai", desc: "Began B.E. in Electronics & Communication Engineering at Madras Institute of Technology, Anna University." },
   { year: "2024", title: "Embedded Systems & Hardware", desc: "Built hardware projects — Worked in various projects invloving signal and image processing , Iot and cloud networks, Analog circuits & design ,PCB Designing , Matlab Projects and more." },
-  { year: "2025", title: "Leadership & Experience ", desc: "MEdia Specialaist @ QUANTUMIT_Club -Expert in Editing , Direction , Content Curation ,Media management ." },
+  { year: "2025", title: "Leadership & Experience ", desc: "Social Media Manager @ QUANTUMIT_Club -Expert in Editing , Direction , Content Curation ,Media management ." },
   { year: "2026", title: "ME and @ARANERI", desc: "Digital Marketing & Media Specialist @ ARANERI #Startup driven by passionate engineering students ." },
 ];
 
