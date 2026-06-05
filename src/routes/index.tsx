@@ -628,7 +628,7 @@ function Portfolio() {
               <div>
                 <div className="text-xs font-mono text-primary">ACHIEVEMENT</div>
                 <div className="font-bold">1. Runner-Up — Q-Debate, Chakravyuha'25</div>
-                <div className="font-bold">2. Completed 5km marathon as a cleanliness awareness #SWATCH BHARAT</div>
+                <div className="font-bold">2. Completed 5km marathon as a cleanliness awareness #SWACHH BHARAT</div>
           
 
               </div>
