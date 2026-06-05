@@ -441,7 +441,7 @@ function Portfolio() {
                 { v: 8.16, suffix: "/10", l: "CGPA" },
                 { v: 8, suffix: "+", l: "Projects" },
                 { v: 12, suffix: "+", l: "Tools" },
-                { v: 4, suffix: "", l: "Certifications" },
+                { v: 6, suffix: "", l: "Certifications" },
               ].map((s) => (
                 <div key={s.l}>
                   <div className="text-3xl md:text-4xl font-bold text-gradient">
