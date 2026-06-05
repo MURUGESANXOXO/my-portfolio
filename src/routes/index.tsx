@@ -315,16 +315,19 @@ function Portfolio() {
           <button onClick={() => scrollTo("hero")} className="font-mono text-sm font-bold text-gradient">
             &lt;MURUGESAN/&gt;
           </button>
-          <ul className="hidden md:flex items-center gap-7 text-sm">
-            {NAV.map((n) => (
-              <li key={n.id}>
-                <button onClick={() => scrollTo(n.id)} className="text-muted-foreground hover:text-primary transition-colors">
-                  {n.label}
-                </button>
-              </li>
-            ))}
-          </ul>
-          <a href="/resume.pdf" download className="hidden md:inline-flex items-center gap-2 text-sm bg-gradient-primary text-primary-foreground px-4 py-2 rounded-full font-medium hover:opacity-90 transition">
+            <ul className="flex flex-wrap md:flex-nowrap justify-center gap-4 md:gap-7 text-xs md:text-sm">
+                        {NAV.map((n) => (
+                         <li key={n.id}>
+                               <button
+                                 onClick={() => scrollTo(n.id)}
+                               className="text-muted-foreground hover:text-primary transition-colors"
+                                           >
+                                         {n.label}
+                                        </button>
+                                                     </li>
+                                                        ))}
+                                                           </ul>
+          <a href="/resume.pdf" download className="inline-flex items-center gap-2 text-sm bg-gradient-primary text-primary-foreground px-4 py-2 rounded-full font-medium hover:opacity-90 transition">
             Resume <Download className="w-4 h-4" />
           </a>
         </nav>
